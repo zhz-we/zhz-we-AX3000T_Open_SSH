@@ -1,0 +1,20 @@
+curl -X POST http://192.168.31.1/cgi-bin/luci/;stok=<you stok>/api/misystem/arn_switch -d "open=1&model=1&level=%0Anvram%20set%20ssh_en%3D1%0A"
+
+curl -X POST http://192.168.31.1/cgi-bin/luci/;stok=<you stok>/api/misystem/arn_switch -d "open=1&model=1&level=%0Anvram%20commit%0A"
+
+curl -X POST http://192.168.31.1/cgi-bin/luci/;stok=<you stok>/api/misystem/arn_switch -d "open=1&model=1&level=%0Ased%20-i%20's%2Fchannel%3D.*%2Fchannel%3D%22debug%22%2Fg'%20%2Fetc%2Finit.d%2Fdropbear%0A"
+
+curl -X POST http://192.168.31.1/cgi-bin/luci/;stok=<you stok>/api/misystem/arn_switch -d "open=1&model=1&level=%0A%2Fetc%2Finit.d%2Fdropbear%20start%0A"
+
+ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa root@192.168.31.1
+
+Password: SN ——> https://miwifi.dev/ssh
+
+// ssh持久化
+创建目录：mkdir /data/auto_ssh
+设置读写权限：chmod 777 /data/auto_ssh
+创建文件：vi auto_ssh.sh
+设置文件操作权限：chmod 700 auto_ssh.sh
+粘贴链接内容：https://raw.githubusercontent.com/zhz-we/AX3000T_Open_SSH/refs/heads/main/auto_ssh.sh
+保存退出：wq
+执行权限:./auto_ssh.sh install
